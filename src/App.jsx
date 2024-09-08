@@ -3,38 +3,44 @@ import Hero from "./Components/Hero";
 import Generator from "./Components/Generator";
 import Workout from "./Components/Workout";
 import { generateWorkout } from "./utils/functions";
+import ComingSoon from "./Components/ComingSoon";
+import Footer from "./Components/Footer";
 
 function App() {
-  const [workout,setWorkout] = useState(null)
-  const [poison,setPoison] = useState('individual')
-  const [muscles,setMuscles] = useState([])
-  const [goal,setGoal] = useState('strength_power')
+  const [workout, setWorkout] = useState(null);
+  const [poison, setPoison] = useState("individual");
+  const [muscles, setMuscles] = useState([]);
+  const [goal, setGoal] = useState("strength_power");
 
-  function updateWorkout(){
-    if(muscles.length <1){
-      return
+  function updateWorkout() {
+    if (muscles.length < 1) {
+      return;
     }
-    let newWorkout= generateWorkout({poison,muscles,goal})
-    console.log("Generated workout:",newWorkout)
-    setWorkout(newWorkout)
+    let newWorkout = generateWorkout({ poison, muscles, goal });
+    console.log("Generated workout:", newWorkout);
+    setWorkout(newWorkout);
 
-    window.location.href = "#workout"
+    window.location.href = "#workout";
   }
-
 
   return (
     <main className="min-h-screen flex flex-col bg-gradient-to-r from-slate-800 to-slate-950 text-white text-sm sm:text-base ">
       <Hero />
       <Generator
-        poison = {poison}
-        setPoison = {setPoison}
-        muscles = {muscles}
-        setMuscles = {setMuscles}
-        goal = {goal}
-        setGoal = {setGoal}
-        updateWorkout = {updateWorkout}
-       />
-      {workout && (<Workout workout={workout}/>)}
+        poison={poison}
+        setPoison={setPoison}
+        muscles={muscles}
+        setMuscles={setMuscles}
+        goal={goal}
+        setGoal={setGoal}
+        updateWorkout={updateWorkout}
+      />
+      {workout && (
+        <>
+          <Workout workout={workout} /> <ComingSoon />
+        </>
+      )}
+      <Footer/>
     </main>
   );
 }
