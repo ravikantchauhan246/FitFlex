@@ -23,7 +23,9 @@ const Hero = () => {
         the ultimate embodiment of{" "}
         <span className="text-purple-500 font-medium">strength</span>.
       </p>
-     <Button  text={"Accept and Begin"}/>
+     <Button func={()=>{
+      window.location.href = '#generate'
+     }} text={"Accept and Begin"}/>
     </div>
   );
 };

@@ -45,6 +45,7 @@ const Generator = ({poison,setPoison,muscles,setMuscles,goal,setGoal,updateWorko
 
   return (
     <SectionWrapper
+      id={"generate"}
       header="generate your workout"
       title={["It's", "Huge", "o'clock"]}
     >
